@@ -1,0 +1,110 @@
+Numpy exercises
+-----------------
+
+1) Print your numpy version.
+A) np.version.version
+
+2) Create a zero vector of size 5
+A) np.zeros(5)
+
+3) Create a zero vector of size 5 of type integer. Set the third element to 1.
+A) l = np.zeros(5)
+   l[2] = 1
+
+4) Create a vector ranging from 0 to 9.
+A) np.array(range(0,10))
+
+5) Create a vector ranging from 10 to 29.
+A) np.array(range(10,30))
+
+6) Create a vector ranging from 0 to 9 and reverse it.
+A) np.array(range(0,9)[::-1]) 
+
+7) Create a 5 x 3 zero matrix.
+A) np.zeros((5,3))
+
+8) Create this matrix...without copy pasting it ;)
+A) np.array([[0,3,6],[1,4,7],[2,5,8])
+
+9) Create a 3 X 3 identity matrix.
+A) np.eye(3)
+
+10) Create a 2 X 2 X 2 array with random values (drawn from a normal distribution).
+A) 
+
+11) Create a 5 x 4 array with random values and find the minimum and maximum values.
+A) 
+
+12) Return the index (i.e. the location within the matrix) of the max or min values
+A) 
+
+13) Find the mean value of the array in 11.
+A) 
+
+14) Find the row means of the array in 11.
+A) 
+
+15) Create a list with elements 2.2, 3.5, 0, 4, 0. and convert into numpy array. Find the indices of non-zero elements.
+A) 
+
+16) Create two normally distributed random matrices of shape (5, 4) and (4, 2). Print their matrix product.
+A) 
+
+17) Create a random matrix of shape (5, 3) and a random vector of size 3. Use broadcasting to add the two arrays.
+A)
+
+Pandas Exercises
+-----------------
+
+1) Load the credit dataset and display the dataset basic information.
+A) import pandas as pd
+   data = pd.read_csv('credit.csv')
+   print data
+
+2) Display the summary statistics of the attributes of the dataset.
+A) data.summary()
+
+3) Display the last 6 instances of the dataset.
+A) data.tail(6)
+
+4) Print the 5th observation
+A) print(data.iloc[5])
+
+5) Print the standard deviation of the attribute CreditAmount by using the numpy method std. You can verify you get the correct result by inspecting the statistics table from Question 19.
+A) 
+
+
+Matplotlib exercises
+--------------------
+1) Initialise an empty figure of size (8,6). Create a scatter plot of the observations in the credit dataset for the attributes Duration and Age (age should be shown on the xaxis). Use black coloured markers. Label the axes accordingly by using red colour for the xaxis and green for the yaxis. Finally, add a title of your choice by using a font size of 20.
+A) 
+	duration = credit['Duration'].values
+	age = credit['Age'].values
+	plt.figure(figsize=(8,6))
+	plt.scatter(age, duration, color='k')
+	plt.xlabel('Age', color = 'g')
+	plt.ylabel('Duration', color = 'r')
+	plt.title("This is a title", size=20)
+	plt.show()
+
+
+
+2) You should note above that there is an outlier (i.e. an observation that is very distant to the other observations). Now you think that there must be something wrong with that observation (why?) and as a next step you should remove it from both the age and duration variables and a make a scatter plot of the new data.
+
+A)        
+        neg_age_idx = np.argwhere(age<0)
+	age = np.delete(age, neg_age_idx)
+	duration=np.delete(duration, neg_age_idx)
+	plt.figure(figsize=(8,6))
+	plt.scatter(age, duration, color='k')
+	plt.xlabel('Age', color = 'g')
+	plt.ylabel('Duration', color = 'r')
+	plt.title("This is a title", size=20)
+	plt.show()
+
+
+ 
+
+
+
+
